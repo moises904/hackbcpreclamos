@@ -1,42 +1,23 @@
 package pe.com.bcp.reclamowow.feature.register.presentation.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import pe.com.bcp.reclamowow.R
+import org.koin.android.viewmodel.ext.android.viewModel
 import pe.com.bcp.reclamowow.core.base.BaseFragment
 import pe.com.bcp.reclamowow.core.base.BaseViewModel
 import pe.com.bcp.reclamowow.databinding.FragmentRegisterSuccessBinding
-
+import pe.com.bcp.reclamowow.feature.register.presentation.viewmodel.RegisterViewModel
 
 class RegisterSuccessFragment : BaseFragment<FragmentRegisterSuccessBinding>() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register_success, container, false)
-    }
+    private val registerViewModel: RegisterViewModel by viewModel(clazz = RegisterViewModel::class)
 
     override fun getViewModel(): BaseViewModel? {
-        TODO("Not yet implemented")
+        return registerViewModel
     }
 
     override fun setupObserversViewModel() {
-        TODO("Not yet implemented")
     }
 
     override fun init() {
-        TODO("Not yet implemented")
     }
 }

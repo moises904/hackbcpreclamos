@@ -21,11 +21,25 @@
         android:id="@+id/registerFragment"
         android:name="pe.com.bcp.reclamowow.feature.register.presentation.view.RegisterFragment"
         android:label="fragment_register"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_registerSuccessFragment"
+            app:destination="@id/registerSuccessFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="pe.com.bcp.reclamowow.feature.search.presentation.view.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/registerSuccessFragment"
+        android:name="pe.com.bcp.reclamowow.feature.register.presentation.view.RegisterSuccessFragment"
+        android:label="fragment_register_success"
+        tools:layout="@layout/fragment_register_success" >
+
+        <argument android:name="resultClaim"
+            app:argType="pe.com.bcp.reclamowow.feature.register.domain.model.RegisterSuccessModel"/>
+
+    </fragment>
 
 </navigation>
