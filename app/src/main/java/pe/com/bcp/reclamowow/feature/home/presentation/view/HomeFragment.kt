@@ -19,6 +19,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     override fun init() {
+        bindingView.homeTextView.text = "Este es el Home"
+
     }
 
 

@@ -36,6 +36,18 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res/layouts/splash',
+                    'src/main/res/layouts/home',
+                    'src/main/res/layouts/register',
+                    'src/main/res/layouts/search',
+                    'src/main/res'
+            ]
+        }
+    }
 }
 
 dependencies {

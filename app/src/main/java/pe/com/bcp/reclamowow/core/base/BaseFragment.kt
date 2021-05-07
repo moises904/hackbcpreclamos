@@ -13,7 +13,7 @@ import org.koin.android.ext.android.inject
 import pe.com.bcp.reclamowow.core.navigation.Navigator
 import java.lang.reflect.ParameterizedType
 
-
+@Suppress("UNCHECKED_CAST")
 abstract class BaseFragment<T : ViewBinding> : Fragment(){
 
     lateinit var bindingView: T

@@ -9,7 +9,6 @@ import pe.com.bcp.reclamowow.databinding.FragmentSplashBinding
 import pe.com.bcp.reclamowow.feature.home.presentation.view.HomeActivity
 import pe.com.bcp.reclamowow.feature.splash.presentation.viewmodel.SplashViewModel
 
-
 class SplashFragment : BaseFragment<FragmentSplashBinding>() {
 
     private val splashViewModel: SplashViewModel by viewModel(clazz = SplashViewModel::class)

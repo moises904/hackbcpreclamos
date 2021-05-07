@@ -16,6 +16,7 @@ import org.koin.android.ext.android.inject
 import pe.com.bcp.reclamowow.core.navigation.Navigator
 import java.lang.reflect.ParameterizedType
 
+@Suppress("UNCHECKED_CAST")
 abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
 
     val navigator: Navigator by inject()
