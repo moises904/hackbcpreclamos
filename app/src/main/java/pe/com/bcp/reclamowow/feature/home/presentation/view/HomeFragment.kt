@@ -1,9 +1,9 @@
 package pe.com.bcp.reclamowow.feature.home.presentation.view
 
 import android.util.Log
-import android.widget.ListAdapter
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.android.viewmodel.ext.android.viewModel
 import pe.com.bcp.reclamowow.R
 import pe.com.bcp.reclamowow.core.base.BaseFragment
@@ -15,6 +15,9 @@ import pe.com.bcp.reclamowow.feature.home.presentation.viewmodel.HomeViewModel
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private val homeViewModel: HomeViewModel by viewModel(clazz = HomeViewModel::class)
+    private var expandedSize =  ArrayList<Int>()
+    private var lstClaims = ArrayList<ClaimModel> ()
+    private lateinit var adapter: RVAdapter
 
     override fun getViewModel(): BaseViewModel? {
         return homeViewModel
@@ -23,18 +26,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun setupObserversViewModel() {
         homeViewModel.lstClaims.observe(this) {lstClaims ->
             Log.i("DATAFRAGMENT",lstClaims.toString())
+            this.lstClaims = lstClaims as ArrayList<ClaimModel>
             loadFrequentClaims(lstClaims)
         }
     }
 
     override fun init() {
+
+        adapter = RVAdapter(lstClaims, expandedSize)
+        bindingView.rvClaims.adapter = this.adapter
         homeViewModel.getFrequentClaims()
 
+        bindingView.cardView5.setOnClickListener {
+            goToRegister()
+        }
 
-
-        bindingView.btnRegister.setOnClickListener { goToRegister() }
-
-        bindingView.btnSearch.setOnClickListener { goToSearch() }
+        bindingView.cardView3.setOnClickListener {
+            goToSearch()
+        }
 
     }
 
@@ -48,19 +57,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun loadFrequentClaims(claims: List<ClaimModel>) {
 
-        var lstTitles = ArrayList<String> ()
-        var detailsHashMap = HashMap<String, List<String>> ()
-        for(claim in claims) {
 
-            claim.type?.let {
-                lstTitles.add(it)
-                detailsHashMap.put(it, lstTitles)
+         bindingView.rvClaims.setHasFixedSize(true)
+         bindingView.rvClaims.layoutManager =  LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+         setCellSize()
 
-            }
-        }
-
-        val customExpandableListAdapter = CustomExpandableListAdapter(requireContext(),lstTitles, detailsHashMap)
-         //bindingView.expandableFrequentClaims.adapter = customExpandableListAdapter
+        bindingView.rvClaims.adapter = RVAdapter(claims as ArrayList<ClaimModel>,expandedSize)
     }
 
+    private fun setCellSize() {
+        expandedSize = ArrayList()
+        for (i in 0 until lstClaims.count()) {
+            expandedSize.add(0)
+        }
+    }
 }

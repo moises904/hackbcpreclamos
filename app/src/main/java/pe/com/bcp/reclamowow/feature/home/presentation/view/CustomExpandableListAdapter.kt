@@ -1,104 +1,99 @@
 package pe.com.bcp.reclamowow.feature.home.presentation.view
 
+import android.animation.ValueAnimator
 import android.content.Context
-import android.database.DataSetObserver
 import android.graphics.Typeface
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.BaseExpandableListAdapter
+import android.os.Build
+import android.util.DisplayMetrics
+import android.util.TypedValue
+import android.view.*
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.item_claim_title_description.view.*
 import pe.com.bcp.reclamowow.R
+import pe.com.bcp.reclamowow.feature.home.domain.model.ClaimModel
 
-class CustomExpandableListAdapter(val context: Context?, val expandableListTitle: List<String>?,
-                                                       val expandableListDetail: HashMap<String, List<String>>?):
-    BaseExpandableListAdapter() {
+class RVAdapter(private val itemsCells: ArrayList<ClaimModel>, private val expandedSize: ArrayList<Int>) : RecyclerView.Adapter<RVAdapter.ViewHolder>() {
 
+    private lateinit var context: Context
 
-    override fun getChild(listPosition: Int, expandedListPosition: Int): Any? {
-        return expandableListDetail!![expandableListTitle!![listPosition]]?.get(expandedListPosition)
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        context = parent.context
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_claim_title_description, parent, false)
+        return ViewHolder(v)
     }
 
-    override fun getChildView(
-        listPosition: Int, expandedListPosition: Int,
-        isLastChild: Boolean, convertView: View?, parent: ViewGroup?
-    ): View? {
-        var convertView: View? = convertView
-        val expandedListText =
-            getChild(listPosition, expandedListPosition) as String?
-        if (convertView == null) {
-            val layoutInflater = context
-                ?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            convertView = layoutInflater.inflate(R.layout.item_claim_title, null)
+    override fun getItemCount(): Int {
+        return itemsCells.size
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        // Add data to cells
+        holder.itemView.titleClaim.text = itemsCells[position].type
+        holder.itemView.description2Claim.text = itemsCells[position].description
+        holder.itemView.description2Claim.layoutParams.height = expandedSize[position]
+
+        holder.itemView.titleClaim.setOnClickListener {
+            if (expandedSize[position] == 0) {
+                // Calculate the height of the Answer Text
+                val answerTextViewHeight = height(context, itemsCells[position].description!!, Typeface.DEFAULT, 16, dp2px(15f, context))
+                changeViewSizeWithAnimation(holder.itemView.description2Claim, answerTextViewHeight, 300L)
+                expandedSize[position] = answerTextViewHeight
+            } else {
+                changeViewSizeWithAnimation(holder.itemView.description2Claim, 0, 300L)
+                expandedSize[position] = 0
+            }
         }
-        val expandedListTextView = convertView?.findViewById(R.id.descriptionClaim) as TextView
-        expandedListTextView.text = expandedListText
-        return convertView
     }
 
-    override fun getChildId(groupPosition: Int, childPosition: Int): Long {
-        TODO("Not yet implemented")
-    }
-
-    override fun areAllItemsEnabled(): Boolean {
-
-    }
-
-    override fun getChildrenCount(listPosition: Int): Int {
-        return expandableListDetail!![expandableListTitle!![listPosition]]!!.size
-    }
-
-    override fun getGroup(listPosition: Int): Any? {
-        return expandableListTitle!![listPosition]
-    }
-
-    override fun onGroupCollapsed(groupPosition: Int) {
-        TODO("Not yet implemented")
-    }
-
-    override fun isEmpty(): Boolean {
-        TODO("Not yet implemented")
-    }
-
-    override fun registerDataSetObserver(observer: DataSetObserver?) {
-        TODO("Not yet implemented")
-    }
-
-    override fun getGroupCount(): Int {
-        return expandableListTitle!!.size
-    }
-
-    override fun getGroupId(listPosition: Int): Long {
-        return listPosition.toLong()
-    }
-
-    override fun getGroupView(
-        listPosition: Int, isExpanded: Boolean,
-        convertView: View?, parent: ViewGroup?
-    ): View? {
-        var convertView = convertView
-        val listTitle = getGroup(listPosition) as String?
-        if (convertView == null) {
-            val layoutInflater =
-                context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            convertView = layoutInflater.inflate(R.layout.item_claim_title, null)
+    private fun changeViewSizeWithAnimation(view: View, viewSize: Int, duration: Long) {
+        val startViewSize = view.measuredHeight
+        val endViewSize: Int =
+            if (viewSize < startViewSize) (viewSize) else (view.measuredHeight + viewSize)
+        val valueAnimator =
+            ValueAnimator.ofInt(startViewSize, endViewSize)
+        valueAnimator.duration = duration
+        valueAnimator.addUpdateListener {
+            val animatedValue = valueAnimator.animatedValue as Int
+            val layoutParams = view.layoutParams
+            layoutParams.height = animatedValue
+            view.layoutParams = layoutParams
         }
-        val listTitleTextView = convertView?.findViewById<View>(R.id.title) as TextView
-        listTitleTextView.setTypeface(null, Typeface.BOLD)
-        listTitleTextView.text = listTitle
-        return convertView
+        valueAnimator.start()
     }
 
-    override fun unregisterDataSetObserver(observer: DataSetObserver?) {
-        TODO("Not yet implemented")
+    private fun height(context: Context, text: String, typeface: Typeface?, textSize: Int, padding: Int): Int {
+        val textView = TextView(context)
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize.toFloat())
+        textView.setPadding(padding, padding, padding, padding)
+        textView.typeface = typeface
+        textView.text = text
+        val mMeasureSpecWidth =
+            View.MeasureSpec.makeMeasureSpec(getDeviceWidth(context), View.MeasureSpec.AT_MOST)
+        val mMeasureSpecHeight = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+        textView.measure(mMeasureSpecWidth, mMeasureSpecHeight)
+        return textView.measuredHeight
     }
 
-    override fun hasStableIds(): Boolean {
-        return false
+    private fun dp2px(dpValue: Float, context: Context): Int {
+        val scale = context.resources.displayMetrics.density
+        return (dpValue * scale + 0.5f).toInt()
     }
 
-    override fun isChildSelectable(listPosition: Int, expandedListPosition: Int): Boolean {
-        return true
+    private fun getDeviceWidth(context: Context): Int {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val displayMetrics = DisplayMetrics()
+            val display: Display? = context.display
+            display?.getRealMetrics(displayMetrics)
+            displayMetrics.widthPixels
+        } else {
+            val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+            val displayMetrics = DisplayMetrics()
+            wm.defaultDisplay.getMetrics(displayMetrics)
+            displayMetrics.widthPixels
+        }
     }
 
 }

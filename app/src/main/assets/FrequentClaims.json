@@ -1,11 +1,26 @@
 {
   "claims": [
     {
-      "type" : "Robo de tarjeta",
+      "type" : "Robo de tarjeta 1",
       "description" : "Bloquea tu tarjeta."
     },
     {
-      "type" : "Cambio de clave",
+      "type" : "Cambio de clave 2",
+      "description" : "Hazlo a travez de tú app movil."
+    },
+    {
+      "type" : "Robo de tarjeta 3",
+      "description" : "Bloquea tu tarjeta."
+    },
+    {
+      "type" : "Cambio de clave 4",
+      "description" : "Hazlo a travez de tú app movil."
+    },{
+      "type" : "Robo de tarjeta 5",
+      "description" : "Bloquea tu tarjeta."
+    },
+    {
+      "type" : "Cambio de clave 6",
       "description" : "Hazlo a travez de tú app movil."
     }
   ]
