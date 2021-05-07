@@ -10,12 +10,10 @@ import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
-
 class ReceiveNotification : FirebaseMessagingService() {
     override fun onNewToken(p0: String) {
         super.onNewToken(p0)
         Log.i("TOKEN=", p0);
-
     }
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
@@ -30,7 +28,7 @@ class ReceiveNotification : FirebaseMessagingService() {
             .setContentText(remoteMessage.notification?.body)
             .setAutoCancel(true)
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 channelId,

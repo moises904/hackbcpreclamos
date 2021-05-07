@@ -21,13 +21,12 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     }
 
     override fun init() {
-        bindingView.greatTextView.text = "Hackaton grupo 3"
         startSplash()
     }
 
     private fun startSplash() {
         CoroutineScope(Dispatchers.IO).launch {
-            delay(1000L)
+            delay(3000L)
             withContext(Dispatchers.Main) {
                 goToHome()
             }
