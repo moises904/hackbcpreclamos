@@ -9,4 +9,18 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="main_title">Reclamo WOW</string>
+    <string name="button_1">Reclamar</string>
+    <string name="button_2">Consultar</string>
+
+    <!--REGISTER VIEW-->
+    <string name="register_title">Registrar reclamo</string>
+    <string name="register_subtitle">Por favor, completa los siguientes campos para registrar tu reclamo:</string>
+    <string name="document_type_label">Tipo de documento</string>
+    <string name="document_number_label">Número de documento</string>
+    <string name="phone_number_label">Número de celular</string>
+    <string name="email_label">Correo electrónico</string>
+    <string name="date_label">Fecha del incidente</string>
+    <string name="type_label">Tipo de reclamo</string>
+    <string name="detail_label">Detalle del reclamo</string>
 </resources>
