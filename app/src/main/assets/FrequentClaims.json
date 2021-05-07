@@ -1,0 +1,12 @@
+{
+  "claims": [
+    {
+      "type" : "Robo de tarjeta",
+      "description" : "Bloquea tu tarjeta."
+    },
+    {
+      "type" : "Cambio de clave",
+      "description" : "Hazlo a travez de tú app movil."
+    }
+  ]
+}

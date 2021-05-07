@@ -26,10 +26,9 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>() {
     }
 
     private fun startSplash() {
-        CoroutineScope(Dispatchers.IO).launch { // launch a new coroutine and keep a reference to its Job
+        CoroutineScope(Dispatchers.IO).launch {
             delay(1000L)
             withContext(Dispatchers.Main) {
-                println("Fin!")
                 goToHome()
             }
         }

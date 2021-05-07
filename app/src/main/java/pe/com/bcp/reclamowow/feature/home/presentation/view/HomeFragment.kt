@@ -1,5 +1,7 @@
 package pe.com.bcp.reclamowow.feature.home.presentation.view
 
+import android.util.Log
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import org.koin.android.viewmodel.ext.android.viewModel
 import pe.com.bcp.reclamowow.R
@@ -17,12 +19,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     override fun setupObserversViewModel() {
+        homeViewModel.lstClaims.observe(this) {lstClaims ->
+            Log.i("DATAFRAGMENT",lstClaims.toString())
 
+        }
     }
 
     override fun init() {
 
         bindingView.homeTextView.text = "Este es el Home"
+
+        homeViewModel.getFrequentClaims()
 
         bindingView.btnRegister.setOnClickListener { goToRegister() }
 
