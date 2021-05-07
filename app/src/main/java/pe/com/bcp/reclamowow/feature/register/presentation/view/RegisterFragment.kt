@@ -1,8 +1,11 @@
 package pe.com.bcp.reclamowow.feature.register.presentation.view
 
+import android.R
+import android.widget.ArrayAdapter
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import org.koin.android.viewmodel.ext.android.viewModel
+import pe.com.bcp.reclamowow.common.Constants
 import pe.com.bcp.reclamowow.core.base.BaseFragment
 import pe.com.bcp.reclamowow.core.base.BaseViewModel
 import pe.com.bcp.reclamowow.databinding.FragmentRegisterBinding
@@ -29,6 +32,10 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
         bindingView.registerClaimButton.setOnClickListener {
             registerNewClaim()
         }
+
+        val typeDocumentAdapter  =  ArrayAdapter(requireContext(), R.layout.simple_spinner_item, Constants.typeDocumentos)
+        bindingView.spinner.adapter = typeDocumentAdapter
+
     }
 
     private fun registerNewClaim() {
