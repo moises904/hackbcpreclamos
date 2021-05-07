@@ -19,7 +19,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
     }
 
     override fun init() {
-        bindingView.registerTextView.text = "Este es el Registro"
 
         bindingView.registerClaimButton.setOnClickListener {
             registerNewClaim()

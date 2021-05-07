@@ -3,9 +3,9 @@
     <font
         android:fontStyle="normal"
         android:fontWeight="400"
-        android:font="@font/Flexo_Regular" />
+        android:font="@font/flexo_regular" />
     <font
         android:fontStyle="normal"
         android:fontWeight="700"
-        android:font="@font/Flexo_Demi" />
+        android:font="@font/flexo_demi" />
 </font-family>
