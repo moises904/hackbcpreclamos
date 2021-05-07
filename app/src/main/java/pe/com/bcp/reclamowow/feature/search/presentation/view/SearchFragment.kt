@@ -6,6 +6,7 @@ import pe.com.bcp.reclamowow.core.base.BaseViewModel
 import pe.com.bcp.reclamowow.databinding.FragmentSearchBinding
 import pe.com.bcp.reclamowow.feature.search.presentation.viewmodel.SearchViewModel
 
+
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
     private val searchViewModel: SearchViewModel by viewModel(clazz = SearchViewModel::class)
@@ -18,7 +19,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     }
 
     override fun init() {
-        //bindingView.searchTextView.text = "Esta es Buscar, Filtrar"
+       // val aa = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, Constants.)
+       // bindingView.spinnerTypeDocument = aa
+
     }
 
 
