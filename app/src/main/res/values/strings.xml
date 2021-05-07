@@ -20,8 +20,9 @@
     <string name="button_2">Consultar</string>
 
     <!--REGISTER VIEW-->
-    <string name="register_title">Registrar reclamo</string>
+    <string name="register_title">Registra tu reclamo</string>
     <string name="register_subtitle">Por favor, completa los siguientes campos para registrar tu reclamo:</string>
+    <string name="register_submit">Enviar reclamo</string>
     <string name="document_type_label">Tipo de documento</string>
     <string name="document_number_label">Número de documento</string>
     <string name="phone_number_label">Número de celular</string>
@@ -30,4 +31,13 @@
     <string name="type_label">Tipo de reclamo</string>
     <string name="detail_label">Detalle del reclamo</string>
 
+    <!--SEARCH VIEW-->
+    <string name="search_title">Consulta tu reclamo</string>
+    <string name="search_submit">Buscar reclamo</string>
+    <string name="document_option">Buscar por documento</string>
+    <string name="id_option">Buscar por código</string>
+    <string name="initial_date">Fecha de reclamo:</string>
+    <string name="final_date">Fecha de resolución:</string>
+    <string name="add_comment">Agregar un comentario</string>
+    <string name="complaint_id_label">Código de reclamo</string>
 </resources>
