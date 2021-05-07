@@ -1,6 +1,8 @@
 package pe.com.bcp.reclamowow.feature.search.presentation.view
 
+import android.widget.ArrayAdapter
 import org.koin.android.viewmodel.ext.android.viewModel
+import pe.com.bcp.reclamowow.common.Constants
 import pe.com.bcp.reclamowow.core.base.BaseFragment
 import pe.com.bcp.reclamowow.core.base.BaseViewModel
 import pe.com.bcp.reclamowow.databinding.FragmentSearchBinding
@@ -16,12 +18,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     }
 
     override fun setupObserversViewModel() {
+
     }
 
     override fun init() {
-       // val aa = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, Constants.)
-       // bindingView.spinnerTypeDocument = aa
-
+        val typeDocumentArrayAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, Constants.typeDocumentos)
+        bindingView.spinnerTypeDocument.adapter = typeDocumentArrayAdapter
     }
 
 
