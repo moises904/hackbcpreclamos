@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ReclamoWow" >
         <activity
-            android:name=".feature.home.HomeActivity"
+            android:name=".feature.home.presentation.view.HomeActivity"
             android:label="@string/title_activity_home"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.ReclamoWow.NoActionBar" >

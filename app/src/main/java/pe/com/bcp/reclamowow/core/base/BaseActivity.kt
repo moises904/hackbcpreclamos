@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.textfield.TextInputEditText
 import org.koin.android.ext.android.inject
-import pe.com.bcp.reclamowow.core.Navigator
+import pe.com.bcp.reclamowow.core.navigation.Navigator
 import java.lang.reflect.ParameterizedType
 
 abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {

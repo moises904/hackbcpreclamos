@@ -10,7 +10,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import org.koin.android.ext.android.inject
-import pe.com.bcp.reclamowow.core.Navigator
+import pe.com.bcp.reclamowow.core.navigation.Navigator
 import java.lang.reflect.ParameterizedType
 
 

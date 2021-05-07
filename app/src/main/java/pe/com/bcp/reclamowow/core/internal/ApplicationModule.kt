@@ -2,7 +2,7 @@ package pe.com.bcp.reclamowow.core.internal
 
 import org.koin.core.module.Module
 import org.koin.dsl.module
-import pe.com.bcp.reclamowow.core.Navigator
+import pe.com.bcp.reclamowow.core.navigation.Navigator
 
 val commonModule: Module = module {
     single { providerNavigator() }
