@@ -3,7 +3,6 @@ package pe.com.bcp.reclamowow.feature.search.presentation.view
 import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import org.koin.android.viewmodel.ext.android.viewModel
-import pe.com.bcp.reclamowow.R
 import pe.com.bcp.reclamowow.common.Constants
 import pe.com.bcp.reclamowow.core.base.BaseFragment
 import pe.com.bcp.reclamowow.core.base.BaseViewModel
