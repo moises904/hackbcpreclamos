@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "514700745705",
+    "project_id": "reclamo-1e682",
+    "storage_bucket": "reclamo-1e682.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514700745705:android:ad761b54e82b0f99114978",
+        "android_client_info": {
+          "package_name": "pe.com.bcp.reclamowow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "514700745705-dn2j7p5djbhfrq4qahljrsvmrp56gk50.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pe.com.bcp.reclamowow",
+            "certificate_hash": "5b79049a9515d79fd9ecb6ffbfcf747c4b849694"
+          }
+        },
+        {
+          "client_id": "514700745705-f02euu05281cgc8epuicfmfa5jh17qhg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAScuaebbYEn_pVr-K_5Gyix8lkhJrDJ3o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "514700745705-f02euu05281cgc8epuicfmfa5jh17qhg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

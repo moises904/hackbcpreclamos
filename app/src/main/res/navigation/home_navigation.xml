@@ -22,6 +22,7 @@
         android:name="pe.com.bcp.reclamowow.feature.register.presentation.view.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
+
         <action
             android:id="@+id/action_registerFragment_to_registerSuccessFragment"
             app:destination="@id/registerSuccessFragment" />
@@ -37,9 +38,8 @@
         android:label="fragment_register_success"
         tools:layout="@layout/fragment_register_success" >
 
-        <argument android:name="resultClaim"
+        <argument android:name="resultRegisterModel"
             app:argType="pe.com.bcp.reclamowow.feature.register.domain.model.RegisterSuccessModel"/>
-
     </fragment>
 
 </navigation>
