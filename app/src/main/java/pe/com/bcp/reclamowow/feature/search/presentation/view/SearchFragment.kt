@@ -1,10 +1,13 @@
 package pe.com.bcp.reclamowow.feature.search.presentation.view
 
+import android.widget.ArrayAdapter
 import org.koin.android.viewmodel.ext.android.viewModel
+import pe.com.bcp.reclamowow.common.Constants
 import pe.com.bcp.reclamowow.core.base.BaseFragment
 import pe.com.bcp.reclamowow.core.base.BaseViewModel
 import pe.com.bcp.reclamowow.databinding.FragmentSearchBinding
 import pe.com.bcp.reclamowow.feature.search.presentation.viewmodel.SearchViewModel
+
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
@@ -15,10 +18,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     }
 
     override fun setupObserversViewModel() {
+
     }
 
     override fun init() {
-        //bindingView.searchTextView.text = "Esta es Buscar, Filtrar"
+        val typeDocumentArrayAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, Constants.typeDocumentos)
+        bindingView.spinnerTypeDocument.adapter = typeDocumentArrayAdapter
     }
 
 
