@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/SplashFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="pe.com.bcp.reclamowow.FirstFragment"
+        android:id="@+id/SplashFragment"
+        android:name="pe.com.bcp.reclamowow.feature.splash.presentation.view.SplashFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
+        tools:layout="@layout/fragment_splash">
     </fragment>
 
 </navigation>
