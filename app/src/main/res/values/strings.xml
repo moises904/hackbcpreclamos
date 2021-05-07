@@ -36,8 +36,15 @@
     <string name="search_submit">Buscar reclamo</string>
     <string name="document_option">Buscar por documento</string>
     <string name="id_option">Buscar por código</string>
-    <string name="initial_date">Fecha de reclamo:</string>
+    <string name="initial_date">Fecha de recepción de reclamo:</string>
     <string name="final_date">Fecha de resolución:</string>
     <string name="add_comment">Agregar un comentario</string>
     <string name="complaint_id_label">Código de reclamo</string>
+
+    <!--SUCCESS VIEW-->
+    <string name="success_title">¡Muchas gracias por la información!</string>
+    <string name="success_subtitle">No olvides anotar tu código de reclamo para poder darle seguimiento.</string>
+    <string name="estimated_final_date">Fecha máxima de resolución:</string>
+    <string name="state_label">Estado:</string>
+    <string name="comment_label">Comentario:</string>
 </resources>
