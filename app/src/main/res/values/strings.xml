@@ -47,4 +47,6 @@
     <string name="estimated_final_date">Fecha máxima de resolución:</string>
     <string name="state_label">Estado:</string>
     <string name="comment_label">Comentario:</string>
+    <string name="comment_detail">Si deseas, puedes añadirle un comentario a tu reclamo aquí:</string>
+    <string name="comment_submit">Agregar comentario</string>
 </resources>
