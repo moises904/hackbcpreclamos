@@ -3,7 +3,6 @@ package pe.com.bcp.reclamowow.feature.register.presentation.view
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import org.koin.android.viewmodel.ext.android.viewModel
-import pe.com.bcp.reclamowow.R
 import pe.com.bcp.reclamowow.core.base.BaseFragment
 import pe.com.bcp.reclamowow.core.base.BaseViewModel
 import pe.com.bcp.reclamowow.databinding.FragmentRegisterBinding
@@ -41,6 +40,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
     }
 
     private fun goToSuccessScreen(successModel: RegisterSuccessModel) {
-        findNavController().navigate(R.id.action_registerFragment_to_registerSuccessFragment)
+        val navigation = RegisterFragmentDirections.actionRegisterFragmentToRegisterSuccessFragment(successModel)
+        findNavController().navigate(navigation)
     }
 }
