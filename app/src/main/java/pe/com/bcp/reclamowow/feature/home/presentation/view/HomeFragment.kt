@@ -21,7 +21,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun setupObserversViewModel() {
         homeViewModel.lstClaims.observe(this) {lstClaims ->
             Log.i("DATAFRAGMENT",lstClaims.toString())
-
         }
     }
 

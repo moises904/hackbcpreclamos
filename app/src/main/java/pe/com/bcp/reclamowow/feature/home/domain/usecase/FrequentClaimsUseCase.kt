@@ -1,6 +1,5 @@
 package pe.com.bcp.reclamowow.feature.home.domain.usecase
 
-import android.util.Log
 import pe.com.bcp.reclamowow.core.base.BaseUseCase
 import pe.com.bcp.reclamowow.core.base.Response
 import pe.com.bcp.reclamowow.feature.home.domain.model.ClaimModel

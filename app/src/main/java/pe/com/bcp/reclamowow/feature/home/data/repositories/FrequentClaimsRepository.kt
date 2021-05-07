@@ -1,7 +1,6 @@
 package pe.com.bcp.reclamowow.feature.home.data.repositories
 
 import android.app.Application
-import android.util.Log
 import pe.com.bcp.reclamowow.core.base.Response
 import pe.com.bcp.reclamowow.feature.home.data.local.ClaimLocalDataSource
 import pe.com.bcp.reclamowow.feature.home.domain.model.ClaimModel

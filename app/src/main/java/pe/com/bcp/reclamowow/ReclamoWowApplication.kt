@@ -7,6 +7,7 @@ import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 import pe.com.bcp.reclamowow.core.internal.commonModule
 import pe.com.bcp.reclamowow.feature.home.module.homeModule
+import pe.com.bcp.reclamowow.feature.register.module.registerModule
 
 class ReclamoWowApplication: Application() {
 
@@ -16,7 +17,7 @@ class ReclamoWowApplication: Application() {
         startKoin {
             androidLogger(Level.INFO)
             androidContext(this@ReclamoWowApplication)
-            koin.loadModules(listOf(commonModule, homeModule))
+            koin.loadModules(listOf(commonModule, homeModule, registerModule))
 
             koin.createRootScope()
         }
