@@ -18,7 +18,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
     }
 
     override fun init() {
-        bindingView.searchTextView.text = "Esta es Buscar, Filtrar"
+        //bindingView.searchTextView.text = "Esta es Buscar, Filtrar"
     }
 
 
